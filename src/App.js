@@ -1,6 +1,8 @@
 import "./App.css";
 import Cards from "./components/Cards";
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import FullDescription from "./components/FullDescription";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -27,7 +29,28 @@ function App() {
     }
   };
 
-  return <Cards cards={cards} />;
+  return (
+    <>
+      <Routes>
+        <Route
+          path="/cards"
+          element={
+            <>
+              <Cards cards={cards} />;
+            </>
+          }
+        />
+        <Route
+          path="/cards/:id"
+          element={
+            <>
+              <FullDescription cards={cards} />
+            </>
+          }
+        />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
