@@ -9,8 +9,8 @@ const FullDescription = ({ cards }) => {
     <>
       {cards
         .filter((card) => card.id === id)
-        .map((card, index) => (
-          <div className="description" key={index}>
+        .map((card) => (
+          <div className="description" key={card.id}>
             <NavLink className="description__link" to="/cards">
               Вернуться к списку франшиз
             </NavLink>
