@@ -32,22 +32,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="/cards"
-          element={
-            <>
-              <Cards cards={cards} />;
-            </>
-          }
-        />
-        <Route
-          path="/cards/:id"
-          element={
-            <>
-              <FullDescription cards={cards} />
-            </>
-          }
-        />
+        <Route path="/cards" element={<Cards cards={cards} />} />
+        <Route path="/cards/:id" element={<FullDescription cards={cards} />} />
       </Routes>
     </>
   );

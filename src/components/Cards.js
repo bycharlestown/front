@@ -2,13 +2,11 @@ import Card from "./Card";
 
 const Cards = ({ cards }) => (
   <>
-    <div className="cards">
+    <ul className="cards">
       {cards.map((card, index) => (
-        <>
-          <Card key={index} card={card} />
-        </>
+        <Card key={index} card={card} />
       ))}
-    </div>
+    </ul>
   </>
 );
 

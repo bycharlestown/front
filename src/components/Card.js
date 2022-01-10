@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Card = ({ card }) => {
   return (
-    <div className="card">
+    <li className="card">
       <div className="card__image-wrapper">
         <img className="card__image" src={card.image} alt={card.title} />
       </div>
@@ -11,10 +11,10 @@ const Card = ({ card }) => {
         <p className="card__price">{card.price}</p>
         <p className="card__description">{card.description}</p>
       </div>
-      <NavLink className="nav__link" to={`/cards/${card.id}`}>
+      <NavLink className="card__link" to={`/cards/${card.id}`}>
         Read more
       </NavLink>
-    </div>
+    </li>
   );
 };
 
