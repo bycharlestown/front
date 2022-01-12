@@ -12,7 +12,7 @@ const Card = ({ card }) => {
         <p className="card__description">{card.description}</p>
       </div>
       <NavLink className="card__link" to={`/cards/${card.id}`}>
-        Read more
+        Подробнее
       </NavLink>
     </li>
   );
