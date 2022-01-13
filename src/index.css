@@ -75,11 +75,21 @@ li {
   color: #fff;
 }
 
-.cards {
+.franchise {
+  display: flex;
+}
+.franchise__sorting {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 20px;
+}
+.franchise__cards {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 0 20px;
+}
+.franchise__link {
+  display: block;
 }
 
 .description__link {

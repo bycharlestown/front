@@ -65,6 +65,7 @@ function App() {
           path="/cards"
           element={
             <Cards
+              allCategories={cards}
               cards={currentCard}
               cardsPerPage={cardsPerPage}
               totalCards={cards.length}
