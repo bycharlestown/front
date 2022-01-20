@@ -1,7 +1,5 @@
-import { NavLink } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination";
-import SortSearch from "./SortSearch";
 
 const Cards = ({
   cards,
@@ -11,13 +9,10 @@ const Cards = ({
   prevPage,
   nextPage,
   currentPage,
-  allCategories,
 }) => {
   return (
     <div className="franchise">
-      <div className="franchise__sorting">
-        <SortSearch allCategories={allCategories} />
-      </div>
+      <div className="franchise__sorting"></div>
       <div>
         <ul className="franchise__cards">
           {cards.map((card, index) => (

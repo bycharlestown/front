@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-const SortSearch = ({ allCategories }) => {
-  let categories = [...new Set(allCategories)];
+const SortByCategory = ({ allCategories }) => {
+  const categories = [...new Set(allCategories)];
+
   return (
     <div className="sorting">
       {categories.map((category, index) => (
@@ -13,4 +14,4 @@ const SortSearch = ({ allCategories }) => {
   );
 };
 
-export default SortSearch;
+export default SortByCategory;
