@@ -107,4 +107,16 @@ li {
   margin-bottom: 20px;
 }
 
+.sorting__link {
+  display: block;
+  border-bottom: 0px solid black;
+  border-top: 0px solid blue;
+  margin-bottom: 5px;
+  transition: 0.2s;
+}
+.sorting__link:hover {
+  border-bottom: 5px solid blue;
+  border-top: 5px solid blue;
+}
+
 /*# sourceMappingURL=index.css.map */
