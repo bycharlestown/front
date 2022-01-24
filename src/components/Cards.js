@@ -1,5 +1,6 @@
 import Card from "./Card";
 import Pagination from "./Pagination";
+import SortByCategory from "./SortByCategory";
 
 const Cards = ({
   cards,
@@ -12,7 +13,7 @@ const Cards = ({
 }) => {
   return (
     <div className="franchise">
-      <div className="franchise__sorting"></div>
+      <SortByCategory allCategories={cards} />
       <div>
         <ul className="franchise__cards">
           {cards.map((card, index) => (

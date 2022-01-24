@@ -3,7 +3,6 @@ import Cards from "./components/Cards";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import FullDescription from "./components/FullDescription";
-import SortByCategory from "./components/SortByCategory";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -81,12 +80,6 @@ function App() {
 
         {/* Card:id description */}
         <Route path="/cards/:id" element={<FullDescription cards={cards} />} />
-
-        {/* Sort card by category name */}
-        <Route
-          path="/cards/:category"
-          element={<SortByCategory cards={cards} />}
-        />
       </Routes>
     </>
   );

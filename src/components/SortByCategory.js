@@ -1,11 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
-<<<<<<< HEAD:src/components/SortByCategory.js
 const SortByCategory = ({ allCategories }) => {
-  const categories = [...new Set(allCategories)];
-
-=======
-const SortSearch = ({ allCategories }) => {
+  const { category } = useParams();
   let categories = [];
 
   for (let card of allCategories) {
@@ -13,7 +9,6 @@ const SortSearch = ({ allCategories }) => {
   }
 
   categories = [...new Set(categories)];
->>>>>>> c4a786584e8c19e6e95e7ac2822a38e385216949:src/components/SortSearch.js
   return (
     <div className="sorting">
       {categories.map((category) => (

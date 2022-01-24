@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 const Card = ({ card }) => {
-  console.log(card.price_min);
   return (
     <li className="card">
       <div className="card__image-wrapper">
