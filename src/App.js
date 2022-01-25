@@ -2,13 +2,28 @@ import "./App.css";
 import Cards from "./components/Cards";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import FullDescription from "./components/FullDescription";
+import CardDescription from "./components/СardDescription";
+import FilterButtons from "./components/FilterButtons";
 
 function App() {
   const [cards, setCards] = useState([]);
 
+  const [categories, setCategories] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage, setCardsPerPage] = useState(40);
+  const [cardsPerPage, setCardsPerPage] = useState(50);
+
+  /// ************ FETCHING CATEGORIES ************
+
+  useEffect(() => {
+    const newCategories = [];
+
+    cards.forEach((card) => {
+      if (card.category !== null) newCategories.push(card.category);
+    });
+
+    setCategories([...new Set(newCategories)]);
+  }, [cards]);
 
   // ************ FETCHING DATA ************
 
@@ -22,7 +37,7 @@ function App() {
   }, []);
 
   const fetchCards = async () => {
-    console.log("start fetching");
+    console.log("Start fetching");
     try {
       const res = await fetch("https://localhost:5000/api/parsing_info");
 
@@ -30,7 +45,9 @@ function App() {
 
       return data;
     } catch (error) {
-      console.log("ERROR: ", error);
+      console.log("Fetching error: ", error);
+    } finally {
+      console.log("Fetching has been finished");
     }
   };
 
@@ -62,24 +79,36 @@ function App() {
     <>
       <Routes>
         {/* All cards */}
+
         <Route
-          path="/cards"
+          path="/:category"
           element={
-            <Cards
-              allCategories={cards}
-              cards={currentCard}
-              cardsPerPage={cardsPerPage}
-              totalCards={cards.length}
-              handlePaginate={handlePaginate}
-              prevPage={prevPage}
-              nextPage={nextPage}
-              currentPage={currentPage}
-            />
+            <>
+              <FilterButtons categories={categories} />
+
+              {cards.length > 0 ? (
+                <Cards
+                  allCategories={cards}
+                  cards={currentCard}
+                  cardsPerPage={cardsPerPage}
+                  totalCards={cards.length}
+                  handlePaginate={handlePaginate}
+                  prevPage={prevPage}
+                  nextPage={nextPage}
+                  currentPage={currentPage}
+                />
+              ) : (
+                <h3>Loading...</h3>
+              )}
+            </>
           }
         />
 
-        {/* Card:id description */}
-        <Route path="/cards/:id" element={<FullDescription cards={cards} />} />
+        {/* Cards id description */}
+        <Route
+          path="/:category/:id"
+          element={<CardDescription cards={cards} />}
+        />
       </Routes>
     </>
   );

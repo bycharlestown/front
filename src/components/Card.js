@@ -17,7 +17,7 @@ const Card = ({ card }) => {
         </p>
         <p className="card__description">{card.description}</p>
       </div>
-      <NavLink className="card__link" to={`/cards/${card.id}`}>
+      <NavLink className="card__link" to={`/${card.category}/${card.id}`}>
         Подробнее
       </NavLink>
     </li>

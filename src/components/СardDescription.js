@@ -6,12 +6,12 @@ const FullDescription = ({ cards }) => {
   const { id } = useParams();
 
   return (
-    <>
+    <div>
       {cards
         .filter((card) => card.id === id)
         .map((card) => (
           <div className="description" key={card.id}>
-            <NavLink className="description__link" to="/cards">
+            <NavLink className="description__link" to={`/${card.category}`}>
               Вернуться к списку франшиз
             </NavLink>
             <h3>Название франшизы:</h3>
@@ -39,7 +39,7 @@ const FullDescription = ({ cards }) => {
             <p className="description__block">{card.quarters_requirements}</p>
           </div>
         ))}
-    </>
+    </div>
   );
 };
 

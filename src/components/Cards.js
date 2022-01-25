@@ -1,6 +1,6 @@
+import { useParams } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination";
-import SortByCategory from "./SortByCategory";
 
 const Cards = ({
   cards,
@@ -11,24 +11,29 @@ const Cards = ({
   nextPage,
   currentPage,
 }) => {
+  const { category } = useParams();
+
   return (
     <div className="franchise">
-      <SortByCategory allCategories={cards} />
       <div>
         <ul className="franchise__cards">
-          {cards.map((card, index) => (
-            <Card key={index} card={card} />
-          ))}
+          {cards
+            .filter((card) => card.category === category)
+            .map((card, index) => (
+              <Card key={index} card={card} />
+            ))}
         </ul>
 
-        <Pagination
-          cardsPerPage={cardsPerPage}
-          totalCards={totalCards}
-          handlePaginate={handlePaginate}
-          prevPage={prevPage}
-          nextPage={nextPage}
-          currentPage={currentPage}
-        />
+        <div className="btn">
+          <Pagination
+            cardsPerPage={cardsPerPage}
+            totalCards={totalCards}
+            handlePaginate={handlePaginate}
+            prevPage={prevPage}
+            nextPage={nextPage}
+            currentPage={currentPage}
+          />
+        </div>
       </div>
     </div>
   );
